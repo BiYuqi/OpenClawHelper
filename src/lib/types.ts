@@ -101,6 +101,9 @@ declare global {
       uninstall: {
         execute: (keepConfig: boolean) => Promise<UninstallStep[]>;
       };
+      app: {
+        getVersion: () => Promise<string>;
+      };
       theme: {
         getSystemTheme: () => Promise<'dark' | 'light'>;
         onSystemChanged: (cb: (theme: 'dark' | 'light') => void) => void;

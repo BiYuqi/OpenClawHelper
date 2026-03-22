@@ -298,6 +298,10 @@ ipcMain.handle('system:checkAppsInstalled', async () => {
   return results;
 });
 
+// ─── App IPC ─────────────────────────────────────────────────────────────────
+
+ipcMain.handle('app:getVersion', () => app.getVersion());
+
 // ─── Theme IPC ───────────────────────────────────────────────────────────────
 
 ipcMain.handle('theme:getSystemTheme', () => {

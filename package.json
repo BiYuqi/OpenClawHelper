@@ -13,7 +13,10 @@
     "build:linux": "tsc && vite build && electron-builder --linux",
     "build:renderer": "vite build",
     "build:electron": "tsc -p tsconfig.electron.json",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release:patch": "npm version patch",
+    "release:minor": "npm version minor",
+    "release:major": "npm version major"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

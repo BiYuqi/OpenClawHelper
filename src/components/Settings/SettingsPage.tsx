@@ -41,6 +41,7 @@ export default function SettingsPage() {
   const { showToast } = useToast();
   const { setPage } = usePageCtx();
 
+  const [version, setVersion] = useState('');
   const [showEditor, setShowEditor] = useState(false);
   const [port, setPort] = useState(18789);
   const [portInput, setPortInput] = useState('18789');
@@ -54,6 +55,7 @@ export default function SettingsPage() {
   const [uninstallDone, setUninstallDone] = useState(false);
 
   useEffect(() => {
+    window.electronAPI.app.getVersion().then(setVersion);
     window.electronAPI.config.read().then((cfg) => {
       const c = cfg as Record<string, unknown>;
       const p = ((c?.gateway as Record<string, unknown>)?.port as number) || 18789;
@@ -226,6 +228,13 @@ export default function SettingsPage() {
           {uninstalling ? '卸载中...' : t('settings.uninstallBtn')}
         </button>
       </section>
+
+      {/* Version */}
+      {version && (
+        <div className="mt-8 text-center text-xs" style={{ color: 'var(--text-secondary)' }}>
+          OpenClawHelper v{version}
+        </div>
+      )}
 
       {showEditor && <ConfigEditorModal onClose={() => setShowEditor(false)} />}
 

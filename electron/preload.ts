@@ -34,6 +34,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   uninstall: {
     execute: (keepConfig: boolean) => ipcRenderer.invoke('uninstall:execute', keepConfig),
   },
+  app: {
+    getVersion: () => ipcRenderer.invoke('app:getVersion'),
+  },
   theme: {
     getSystemTheme: () => ipcRenderer.invoke('theme:getSystemTheme'),
     onSystemChanged: (cb: (theme: 'dark' | 'light') => void) => {
