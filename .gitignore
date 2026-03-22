@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-electron/
+release/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Env / secrets
+*.env
+*.env.*
+*.local
+
+# Editor
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Temp
+*.cache
+*.tmp
+*.bak
+*.swp
+*.swo
+*.iml
